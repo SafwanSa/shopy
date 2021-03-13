@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shopy/widgets/product_item.dart';
+import '../widgets/product_item.dart';
 import '../models/product.dart';
 
 class ProductsOverviewScreen extends StatelessWidget {
