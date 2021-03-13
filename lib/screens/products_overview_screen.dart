@@ -39,6 +39,23 @@ class ProductsOverviewScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Shopy"),
+      ),
+      body: GridView.builder(
+        padding: const EdgeInsets.all(10),
+        itemCount: loadedProducts.length,
+        itemBuilder: (context, i) {
+          return Container();
+        },
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          childAspectRatio: 3 / 2,
+          crossAxisSpacing: 20,
+          mainAxisSpacing: 20,
+        ),
+      ),
+    );
   }
 }
