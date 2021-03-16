@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../screens/product_detail_screen.dart';
-import '../models/product.dart';
+import '../services/product.dart';
 
 class ProductItem extends StatelessWidget {
   ProductItem({this.product});
