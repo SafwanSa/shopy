@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:shopy/services/product_service.dart';
 import '../widgets/products_grid.dart';
 
 enum FilterOptions {
@@ -8,11 +6,16 @@ enum FilterOptions {
   All,
 }
 
-class ProductsOverviewScreen extends StatelessWidget {
+class ProductsOverviewScreen extends StatefulWidget {
+  @override
+  _ProductsOverviewScreenState createState() => _ProductsOverviewScreenState();
+}
+
+class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
+  var _showFavoriteOnly = false;
+
   @override
   Widget build(BuildContext context) {
-    final products = Provider.of<Products>(context, listen: false);
-
     return Scaffold(
       appBar: AppBar(
         title: Text("Shopy"),
@@ -21,9 +24,13 @@ class ProductsOverviewScreen extends StatelessWidget {
             icon: Icon(Icons.more_vert),
             onSelected: (FilterOptions value) {
               if (value == FilterOptions.Favorite) {
-                products.showFavoriteOnly();
+                setState(() {
+                  _showFavoriteOnly = true;
+                });
               } else {
-                products.showAll();
+                setState(() {
+                  _showFavoriteOnly = false;
+                });
               }
             },
             itemBuilder: (_) => [
@@ -39,7 +46,9 @@ class ProductsOverviewScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: ProductsGrid(),
+      body: ProductsGrid(
+        showFavoriteOny: _showFavoriteOnly,
+      ),
     );
   }
 }
