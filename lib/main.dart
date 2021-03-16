@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shopy/screens/product_detail_screen.dart';
-import './screens/products_overview_screen.dart';
 import './screens/product_detail_screen.dart';
+import './screens/products_overview_screen.dart';
+
 import 'package:provider/provider.dart';
 import 'services/product_service.dart';
 
@@ -12,8 +12,8 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => Products(),
+    return ChangeNotifierProvider.value(
+      value: Products(),
       child: MaterialApp(
         title: 'Shopy',
         theme: ThemeData(
