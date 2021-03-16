@@ -14,6 +14,12 @@ class ProductsOverviewScreen extends StatefulWidget {
 class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
   var _showFavoriteOnly = false;
 
+  void _toggleShowFavoriteOnly(bool newState) {
+    setState(() {
+      _showFavoriteOnly = newState;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,13 +30,9 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
             icon: Icon(Icons.more_vert),
             onSelected: (FilterOptions value) {
               if (value == FilterOptions.Favorite) {
-                setState(() {
-                  _showFavoriteOnly = true;
-                });
+                _toggleShowFavoriteOnly(true);
               } else {
-                setState(() {
-                  _showFavoriteOnly = false;
-                });
+                _toggleShowFavoriteOnly(false);
               }
             },
             itemBuilder: (_) => [
