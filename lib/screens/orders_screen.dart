@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopy/services/orders_service.dart';
+import 'package:shopy/widgets/main_drawer.dart';
 import 'package:shopy/widgets/order_item.dart';
 
 class OrdersScreen extends StatelessWidget {
@@ -20,6 +21,7 @@ class OrdersScreen extends StatelessWidget {
           order: orders.orders[index],
         ),
       ),
+      drawer: MainDrawer(),
     );
   }
 }
