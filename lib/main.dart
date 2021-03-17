@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopy/screens/cart_screen.dart';
+import 'package:shopy/screens/orders_screen.dart';
 import 'package:shopy/services/cart_service.dart';
 import 'package:shopy/services/orders_service.dart';
 import './screens/product_detail_screen.dart';
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
             '/': (_) => ProductsOverviewScreen(),
             ProductDetailScreen.routeName: (_) => ProductDetailScreen(),
             CartScreen.routeName: (_) => CartScreen(),
+            OrdersScreen.routeName: (_) => OrdersScreen(),
           },
         ));
   }

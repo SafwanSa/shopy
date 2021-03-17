@@ -4,6 +4,8 @@ import 'package:shopy/services/orders_service.dart';
 import 'package:shopy/widgets/order_item.dart';
 
 class OrdersScreen extends StatelessWidget {
+  static String routeName = '/orders-screen';
+
   @override
   Widget build(BuildContext context) {
     final orders = Provider.of<Orders>(context);
