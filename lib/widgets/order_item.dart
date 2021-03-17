@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopy/models/order.dart';
 import 'package:intl/intl.dart';
+import 'dart:math';
 
 class OrderItem extends StatefulWidget {
   final Order order;
@@ -37,7 +38,40 @@ class _OrderItemState extends State<OrderItem> {
               ),
               onPressed: toggleExpanded,
             ),
-          )
+          ),
+          if (_expanded)
+            Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: 15,
+                vertical: 4,
+              ),
+              height: min(widget.order.products.length * 20.0 + 15, 100),
+              child: ListView(
+                children: [
+                  ...widget.order.products
+                      .map(
+                        (product) => Row(
+                          children: [
+                            Text(
+                              product.title,
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text('${product.quantity}x \$${product.price}',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.grey,
+                                )),
+                          ],
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        ),
+                      )
+                      .toList()
+                ],
+              ),
+            )
         ],
       ),
     );
