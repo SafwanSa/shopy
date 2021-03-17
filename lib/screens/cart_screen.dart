@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopy/services/cart_service.dart';
+import '../services/cart_service.dart';
 
 class CartScreen extends StatelessWidget {
   static String routeName = '/cart-screen';
@@ -20,15 +20,27 @@ class CartScreen extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.all(8),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'Total',
                     style: TextStyle(fontSize: 20),
                   ),
-                  SizedBox(width: 10),
+                  Spacer(),
                   Chip(
-                    label: Text('\$${cart.totalPrice}'),
+                    label: Text(
+                      '\$${cart.totalPrice}',
+                      style: TextStyle(
+                        color:
+                            Theme.of(context).primaryTextTheme.headline6.color,
+                      ),
+                    ),
                     backgroundColor: Theme.of(context).primaryColor,
+                  ),
+                  FlatButton(
+                    child: Text('ORDER NOW'),
+                    onPressed: () {},
+                    textColor: Theme.of(context).primaryColor,
                   )
                 ],
               ),
