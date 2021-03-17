@@ -3,7 +3,7 @@ import 'package:shopy/models/order.dart';
 import 'package:shopy/services/cart_service.dart';
 
 class Orders with ChangeNotifier {
-  List<Order> _orders;
+  List<Order> _orders = [];
 
   List<Order> get orders {
     return [..._orders];
