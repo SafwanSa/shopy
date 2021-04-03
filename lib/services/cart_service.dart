@@ -30,6 +30,24 @@ class Cart with ChangeNotifier {
     notifyListeners();
   }
 
+  void remoteSingleItem(String producitId) {
+    if (!_items.containsKey(producitId)) {
+      return;
+    }
+
+    if (_items[producitId].quantity > 1) {
+      _items.update(
+        producitId,
+        (exitingCartItem) => CartItem(
+          id: exitingCartItem.id,
+          title: exitingCartItem.id,
+          quantity: exitingCartItem.quantity - 1,
+          price: exitingCartItem.price,
+        ),
+      );
+    }
+  }
+
   double get totalPrice {
     var total = 0.0;
     _items.forEach((key, cartItem) {
