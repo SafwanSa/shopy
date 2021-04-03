@@ -44,6 +44,7 @@ class ProductItem extends StatelessWidget {
                 title: product.title,
                 price: product.price,
               );
+              ScaffoldMessenger.of(context).hideCurrentSnackBar();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text('Item added to the cart.'),
