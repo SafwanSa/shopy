@@ -50,7 +50,9 @@ class ProductItem extends StatelessWidget {
                   duration: Duration(seconds: 2),
                   action: SnackBarAction(
                     label: 'Undo',
-                    onPressed: () {},
+                    onPressed: () {
+                      cart.remoteSingleItem(product.id);
+                    },
                   ),
                 ),
               );

@@ -45,7 +45,10 @@ class Cart with ChangeNotifier {
           price: exitingCartItem.price,
         ),
       );
+    } else {
+      _items.remove(producitId);
     }
+    notifyListeners();
   }
 
   double get totalPrice {
